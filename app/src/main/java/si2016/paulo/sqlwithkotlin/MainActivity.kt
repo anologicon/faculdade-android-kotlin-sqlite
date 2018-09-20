@@ -2,6 +2,8 @@ package si2016.paulo.sqlwithkotlin
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import com.facebook.stetho.Stetho
 
 class MainActivity : AppCompatActivity() {
@@ -16,7 +18,12 @@ class MainActivity : AppCompatActivity() {
                         .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
                         .build())
 
-        val db = DataBaseConnector(applicationContext)
+        var cadastrarCateogria = findViewById<Button>();
 
+        cadastrarCateogria.setOnClickListener(View.OnClickListener {
+            salvarElementos()
+
+            listarCategorias()
+        })
     }
 }

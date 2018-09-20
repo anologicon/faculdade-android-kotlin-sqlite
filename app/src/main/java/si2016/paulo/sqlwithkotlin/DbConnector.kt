@@ -16,16 +16,9 @@ class DataBaseConnector(context: Context) : SQLiteOpenHelper(context, DATABASE_N
     // Criar tabelas
     override fun onCreate(db: SQLiteDatabase) {
 
-        val sqlSQL = arrayOf("CREATE TABLE estado " +
+        val sqlSQL = arrayOf("CREATE TABLE afazer" +
                 "(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "nomUf TEXT);  ", "CREATE TABLE cursos" +
-                "(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "nomeCurso TEXT, urlCurso text);  ", "CREATE TABLE categoria" +
-                "(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "nomeCategoria TEXT, urlCurso text);  ", "CREATE TABLE produtos" +
-                "(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "idCategoria INTEGER, " +
-                "nomeProduto TEXT, urlCurso text);  ")
+                "nomeCurso TEXT, feito boolean  );  ")
         Log.i("XXX", "Iniciando criacao do banco")
         for (i in sqlSQL.indices) {
             db.execSQL(sqlSQL[i])
