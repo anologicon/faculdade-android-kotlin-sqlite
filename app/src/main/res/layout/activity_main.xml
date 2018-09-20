@@ -12,7 +12,7 @@
         android:text="@string/titulo_lista" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/inputTodo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/todo"
@@ -41,7 +41,7 @@
         </LinearLayout>
 
     <ListView
-        android:id="@+id/listaDeProdutos"
+        android:id="@+id/listaDeAfazeres"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1" >

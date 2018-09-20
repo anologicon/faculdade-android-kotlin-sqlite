@@ -18,12 +18,12 @@ class MainActivity : AppCompatActivity() {
                         .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
                         .build())
 
-        var cadastrarCateogria = findViewById<Button>();
+        var cadastrarCateogria = findViewById<Button>(R.id.btnSalvar);
 
         cadastrarCateogria.setOnClickListener(View.OnClickListener {
-            salvarElementos()
-
-            listarCategorias()
+          
         })
+
+
     }
 }
