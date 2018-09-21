@@ -1,7 +1,8 @@
-class Afazer constructor(afazer: String, pronto: Boolean) {
-    var afazer = afazer
+package si2016.paulo.sqlwithkotlin.dao
 
-    var pronto = pronto
+class Afazer {
 
-    
+    var idDepartamento: String? = null
+    var nomeProduto: String? = null
+    var qtidadeCompra: String? = null
 }

@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import com.facebook.stetho.Stetho
 
 class MainActivity : AppCompatActivity() {
@@ -18,12 +19,18 @@ class MainActivity : AppCompatActivity() {
                         .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
                         .build())
 
-        var cadastrarCateogria = findViewById<Button>(R.id.btnSalvar);
+        val cadastrarCateogria = findViewById<Button>(R.id.btnSalvar)
+
+        val inputView = findViewById<EditText>(R.id.inputTodo)
 
         cadastrarCateogria.setOnClickListener(View.OnClickListener {
-          
-        })
 
+        })
+    }
+
+    fun listarAfazeres()
+    {
 
     }
+
 }
