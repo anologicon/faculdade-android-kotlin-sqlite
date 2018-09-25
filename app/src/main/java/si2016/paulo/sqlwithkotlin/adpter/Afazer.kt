@@ -1,41 +1,49 @@
 package si2016.paulo.sqlwithkotlin.adapter
 
-
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
+import android.widget.BaseAdapter
 import android.widget.TextView
-import java.util.ArrayList
+import org.w3c.dom.Text
 import si2016.paulo.sqlwithkotlin.R
-
 import si2016.paulo.sqlwithkotlin.dao.Afazer as DaoAfazer
 
-class CustomAdapterTemperaturas//public View convertView;
-(internal var contextTela: Context,
- listaAfazeres: ArrayList<DaoAfazer>) : ArrayAdapter<DaoAfazer>(contextTela, 0, listaAfazeres) {
+class Afazer(private val context: Context,
+                    private val dataSource: ArrayList<DaoAfazer>) : BaseAdapter() {
 
-    private val listaAfazer: ArrayList<DaoAfazer>? = null
-    internal var afazer: DaoAfazer = DaoAfazer()
+    private val inflater: LayoutInflater
+            = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
-
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        var convertView = convertView
-        afazer = getItem(position) as DaoAfazer
-
-        if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.linha_afazer,
-                    parent, false)
-        }
-
-        val datatemperatura = convertView!!.findViewById(
-                R.id.txtViewNomeAfazer) as TextView
-
-        datatemperatura.setText(afazer.nomeProduto.toString())
-
-        convertView.tag = position
-
-        return convertView
+    //1
+    override fun getCount(): Int {
+        return dataSource.size
     }
+
+    //2
+    override fun getItem(position: Int): Any {
+        return dataSource[position]
+    }
+
+    //3
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
+    //4
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+        // Get view for row item
+        val rowView = convertView  ?: inflater.inflate(R.layout.linha_afazer, parent, false)
+
+        val textViewLinha = rowView.findViewById<TextView>(R.id.txtViewNomeAfazer)
+
+        val _afazer = getItem(position) as DaoAfazer
+
+        textViewLinha.text = _afazer.nome.toString()
+
+        return rowView
+    }
+
 }
+

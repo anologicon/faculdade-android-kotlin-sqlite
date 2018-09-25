@@ -7,18 +7,18 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 import java.util.HashMap
 
-class DataBaseConnector(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+class DbConnector(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     val connection: SQLiteDatabase
 
     get() = writableDatabase
 
+
     // Criar tabelas
     override fun onCreate(db: SQLiteDatabase) {
 
         val sqlSQL = arrayOf("CREATE TABLE afazer" +
-                "(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "nomeCurso TEXT, feito boolean  );  ")
+                "(feito INTEGER, nome TEXT);")
         Log.i("XXX", "Iniciando criacao do banco")
         for (i in sqlSQL.indices) {
             db.execSQL(sqlSQL[i])
@@ -73,7 +73,7 @@ class DataBaseConnector(context: Context) : SQLiteOpenHelper(context, DATABASE_N
 
         private val DATABASE_VERSION = 2
 
-        private val DATABASE_NAME = "Unifebe.db"
+        private val DATABASE_NAME = "Todolist.db"
     }
 
 }
