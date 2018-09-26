@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.*
 import com.facebook.stetho.Stetho
 import si2016.paulo.sqlwithkotlin.dao.Afazer as DaoAfazer;
-import si2016.paulo.sqlwithkotlin.adapter.Afazer as AdpAfazer;
+import si2016.paulo.sqlwithkotlin.adpter.Afazer as AdpAfazer;
 import java.util.HashMap
 
 class MainActivity : AppCompatActivity() {
@@ -65,13 +65,16 @@ class MainActivity : AppCompatActivity() {
 
         val adapter = AdpAfazer(this, arrayListAfazeres)
 
-        listViewAfazer.adapter = adapter
+        listViewAfazer?.adapter = adapter
+
+        adapter.notifyDataSetChanged()
     }
 
     fun consultarAfazerDb() {
         val dataBaseConnector = DbConnector(applicationContext)
         val r = dataBaseConnector.connection.rawQuery("select nome from afazer ", null)
         if (r.moveToFirst()) {
+            arrayListAfazeres = ArrayList()
 
             do {
                 val _afazer = DaoAfazer()

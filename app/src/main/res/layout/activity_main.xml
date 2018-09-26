@@ -1,49 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    tools:context="si2016.paulo.sqlwithkotlin.MainActivity">
 
 
-    <TextView
-        android:id="@+id/textView"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/titulo_lista" />
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/inputTodo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/todo"
-        android:inputType="textPersonName" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/titulo_lista" />
+
+        <EditText
+            android:id="@+id/inputTodo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/todo"
+            android:inputType="textPersonName" />
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnSalvar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
                 android:layout_weight="1"
                 android:text="Salvar" />
 
             <Button
                 android:id="@+id/btnLimpar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Limpar" />
-
         </LinearLayout>
 
-    <ListView
-        android:id="@+id/listaDeAfazeres"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        <ListView
+            android:id="@+id/listaDeAfazeres"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-</LinearLayout>
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
